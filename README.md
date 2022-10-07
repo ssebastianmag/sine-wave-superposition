@@ -18,21 +18,21 @@ Modeling and visualization of the superposition principle for two traveling sine
 
 >The superposition principle states that, for all linear systems, 
 > the net response caused by two or more stimuli is the sum of the 
-> responses that would have been caused by each stimulus individually. 
- <br>
+> responses that would have been caused by each stimulus individually.
+
 
 The interaction of two or more waves traveling along the same medium will produce an interference pattern, containing 
 a resultant wave composed of a vector sum with the displacement of each inidividual wave at any particular 
 point in the medium where the interaction takes place.
-<br>
+<br><br>
 <p align='left'>
   <img src='img/Sine wave superposition (w1A=10mm, w1f=180Hz) + (w2A=20mm, w2f=-240Hz).gif'/>
 </p>
-
+<br>
 The modules in this repository present a very simple and minimal approach of modeling and plotting the 
 superposition of two sine waves traveling in the same medium, with the displacement being measured in millimeters 
 at the Y axis and time expressed as centiseconds along the X axis.
-<br>
+<br><br>
 After describing the sine waves to superpose, the output will produce and save (in .gif format) a 
 200-frame animation which can be used to describe the interference scenarios below:
 
