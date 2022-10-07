@@ -28,11 +28,11 @@ point in the medium where the interaction takes place.
 <p align='left'>
   <img src='img/Sine wave superposition (w1A=10mm, w1f=180Hz) + (w2A=20mm, w2f=-240Hz).gif'/>
 </p>
-<br>
+
 The modules in this repository present a very simple and minimal approach of modeling and plotting the 
 superposition of two sine waves traveling in the same medium, with the displacement being measured in millimeters 
 at the Y axis and time expressed as centiseconds along the X axis.
-
+<br>
 After describing the sine waves to superpose, the output will produce and save (in .gif format) a 
 200-frame animation which can be used to describe the interference scenarios below:
 
@@ -79,7 +79,8 @@ options:
 
 ```
 ---
-_All of the samples below have a reduced frame length for compression purposes_
+
+Notice: _All of the samples below have a reduced frame length for compression purposes_
 
 ---
 
