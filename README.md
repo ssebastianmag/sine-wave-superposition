@@ -34,7 +34,7 @@ superposition of two sine waves traveling in the same medium, with the displacem
 at the Y axis and time expressed as centiseconds along the X axis.
 <br><br>
 After describing the sine waves to superpose, the output will produce and save (in .gif format) a 
-200-frame animation which can be used to describe the interference scenarios below:<br>
+200-frame animation which can be used to describe the interference scenarios below:<br><br>
 
 - Constructive interference
 - Destructive interference
