@@ -80,7 +80,7 @@ options:
 ```
 ---
 
-Notice: _All of the samples below have a reduced frame length for compression purposes_
+Notice: _All of the samples below have a reduced frame length for compression purposes._
 
 ---
 
