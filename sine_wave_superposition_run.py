@@ -35,7 +35,6 @@ parser.add_argument('-ipw1', help='Wave 1 - Inverts wave polarity', action='stor
 parser.add_argument('-ipw2', help='Wave 2 - Inverts wave polarity', action='store_true', default=False)
 
 args = parser.parse_args()
-my_parser = argparse.ArgumentParser()
 
 # ______ / Command line arguments end here
 
