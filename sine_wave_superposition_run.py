@@ -6,7 +6,7 @@
 
 # Summary:
 # Modeling and visualization of the superposition principle for two traveling sine waves
-# by definition of the general form y(t) = Asin(ωt)
+# by definition of the general form y(t) = Asin(ωt).
 # _________ _________ _________
 
 from matplotlib.animation import FuncAnimation
