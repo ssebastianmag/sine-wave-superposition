@@ -4,7 +4,7 @@
 # Sebastian Mag | August 2023
 # https://github.com/ssebastianmag/sine-wave-superposition
 
-# Modeling and Visualization of linear superposition
+# Modeling and visualization of linear superposition
 # of waveforms and resultant interference patterns
 # --- --- --- --- --- --- --- --- ---
 
