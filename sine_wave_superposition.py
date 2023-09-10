@@ -189,9 +189,9 @@ if __name__ == '__main__':
 
     # 1. Standing waves
     plot_wave_superposition(
-        wave_1_params={'A': 5, 'wavelength': 10, 'frequency': 90, 'phi': 0.0,
+        wave_1_params={'A': 5, 'wavelength': 10, 'frequency': 90, 'phi': 0,
                        'propagation': 'right', 'phase_polarity': 'positive'},
-        wave_2_params={'A': 5, 'wavelength': 10, 'frequency': 90, 'phi': 0.0,
+        wave_2_params={'A': 5, 'wavelength': 10, 'frequency': 90, 'phi': 0,
                        'propagation': 'left', 'phase_polarity': 'positive'},
         dark_theme=True
     )
@@ -207,9 +207,9 @@ if __name__ == '__main__':
 
     # 3. Constructive Interference
     plot_wave_superposition(
-        wave_1_params={'A': 10, 'wavelength': 10, 'frequency': 90, 'phi': 0.0,
+        wave_1_params={'A': 10, 'wavelength': 10, 'frequency': 90, 'phi': 0,
                        'propagation': 'right', 'phase_polarity': 'positive'},
-        wave_2_params={'A': 5, 'wavelength': 10, 'frequency': 90, 'phi': 0.0,
+        wave_2_params={'A': 5, 'wavelength': 10, 'frequency': 90, 'phi': 0,
                        'propagation': 'right', 'phase_polarity': 'positive'},
         dark_theme=True
     )
@@ -225,7 +225,7 @@ if __name__ == '__main__':
 
     # 5. Perfect Destructive Interference (Cancellation)
     plot_wave_superposition(
-        wave_1_params={'A': 10, 'wavelength': 10, 'frequency': 90, 'phi': 0.0,
+        wave_1_params={'A': 10, 'wavelength': 10, 'frequency': 90, 'phi': 0,
                        'propagation': 'right', 'phase_polarity': 'positive'},
         wave_2_params={'A': 10, 'wavelength': 10, 'frequency': 90, 'phi': np.pi,
                        'propagation': 'right', 'phase_polarity': 'positive'},
@@ -234,18 +234,18 @@ if __name__ == '__main__':
 
     # 6. Fundamental Frequency + 2nd Harmonic
     plot_wave_superposition(
-        wave_1_params={'A': 5, 'wavelength': 4, 'frequency': 90, 'phi': 0.0,
+        wave_1_params={'A': 5, 'wavelength': 4, 'frequency': 90, 'phi': 0,
                        'propagation': 'right', 'phase_polarity': 'positive'},
-        wave_2_params={'A': 2.5, 'wavelength': 2, 'frequency': 180, 'phi': 0.0,
+        wave_2_params={'A': 2.5, 'wavelength': 2, 'frequency': 180, 'phi': 0,
                        'propagation': 'right', 'phase_polarity': 'positive'},
         dark_theme=True
     )
 
     # 7. General superposition
     plot_wave_superposition(
-        wave_1_params={'A': 10, 'wavelength': 6, 'frequency': 90, 'phi': 0.0,
+        wave_1_params={'A': 10, 'wavelength': 6, 'frequency': 90, 'phi': 0,
                        'propagation': 'right', 'phase_polarity': 'positive'},
-        wave_2_params={'A': 5, 'wavelength': 10, 'frequency': 110, 'phi': 0.0,
+        wave_2_params={'A': 5, 'wavelength': 10, 'frequency': 110, 'phi': 0,
                        'propagation': 'left', 'phase_polarity': 'negative'},
         dark_theme=True
     )
