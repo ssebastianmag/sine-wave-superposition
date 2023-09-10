@@ -88,8 +88,8 @@ $y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x \pm 2\pi \cdot \t
 
 | Parameter     | Description                                              | Type            |
 |:--------------|:---------------------------------------------------------|:----------------|
-| wave_1_params | Wave 1 Parameters                                        | dictionary      |
-| wave_2_params | Wave 2 Parameters                                        | dictionary      |
+| wave_1_params | $W_1$: Wave 1 model parameters                           | dictionary      |
+| wave_2_params | $W_2$: Wave 2 model parameters                           | dictionary      |
 | dark_theme    | Dark Theme: If True, uses a dark background for the plot | bool (optional) |
 
 ---
