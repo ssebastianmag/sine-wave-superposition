@@ -24,8 +24,8 @@ def model_sinewave(x, t, A, wavelength, frequency, phi=0, propagation='right', p
             wavelength (float): wavelength (m)
             frequency (float): frequency (Hz)
             phi (float, optional): phase offset of the wave (radians)
-            propagation (str, optional): direction of wave propagation ('right' or 'left')
-            phase_polarity (str, optional): vertical flipping of the wave ('positive' or 'negative')
+            propagation (str, optional): (x-axis) direction of wave propagation ('right' or 'left')
+            phase_polarity (str, optional): (y-axis) vertical flipping of the wave ('positive' or 'negative')
         Returns:
             numpy.ndarray: wave displacement at a given position and time
     """
@@ -45,7 +45,6 @@ def model_sinewave(x, t, A, wavelength, frequency, phi=0, propagation='right', p
 
 def plot_wave_superposition(wave_1_params, wave_2_params, dark_theme=False):
     """ Plot and animate the superposition of two 1D waves.
-
         Args:
             wave_1_params (dict): W1, wave 1 parameters
             wave_2_params (dict): W2, wave 2 parameters
@@ -180,6 +179,7 @@ def plot_wave_superposition(wave_1_params, wave_2_params, dark_theme=False):
 
     # Create and display the animation
     animation = FuncAnimation(fig, update, frames=200, interval=25, blit=True)
+
     # animation.save('sine_wave_superposition_2.gif', writer='pillow', fps=30, dpi=120)  # Save animation (.gif)
     plt.show()
 
