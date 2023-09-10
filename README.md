@@ -15,8 +15,21 @@ principle in one dimension.
 * [IPython Notebook / Jupyter Notebook](sine_wave_superposition_notebook.ipynb)
 ---
 
-### Theoretical Background
-#### Wave Equation
+## Content
+#### Theoretical Background
+* [Wave Equation](#wave-equation)
+* [Superposition Principle](#superposition-principle)
+
+#### Parameters
+* [Wave Model Parameters](#wave-model-parameters)
+* [Superposition Plot Parameters](#superposition-plot-parameters)
+
+#### Implementation
+* [Modeling of sine wave superposition phenomena and interference patterns](#modeling-of-sine-wave-superposition-phenomena-and-interference-patterns)
+
+---
+
+### Wave Equation
 
 The sine wave equation in one-dimension can be represented as:
 
@@ -24,12 +37,12 @@ $$y(x, t) = A \sin(kx \pm \omega t + \phi)$$
 
 where:
 
-$y(x,t)$ is the wave displacement at position $x$ and time $t$
-$A$ is the amplitude
-$k = \frac{2\pi}{\lambda}$ is the wave number
-$\omega = 2\pi f$ is the angular frequency
-$\phi$ is the phase offset
-$+$ or $−$ depends on the direction of propagation (right or left)
+$y(x,t)$ is the wave displacement at position $x$ and time $t$;
+$A$ is the amplitude;
+$k = \frac{2\pi}{\lambda}$ is the wave number;
+$\omega = 2\pi f$ is the angular frequency;
+$\phi$ is the phase offset;
+$+$ or $−$ depends on the direction of propagation (right or left).
 
 ---
 
