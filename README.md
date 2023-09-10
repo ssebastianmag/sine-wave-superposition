@@ -134,5 +134,110 @@ $y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x \pm 2\pi \cdot \t
 #### Output:
 
 <p align='left'>
-  <img src='img/wave_beats.gif' width=90% />
+  <img src='img/wave_beats.gif'/>
+</p>
+
+#### 3. Constructive Interference
+
+| Parameter      | Description           | $W_1$ | $W_2$ |
+|:---------------|:----------------------|:------|:------|
+| A              | $A$: Amplitude        | 1     | 1     |
+| wavelength     | $\lambda$: Wavelength | 1     | 1     |
+| frequency      | $f$: Frequency        | 1     | 1     |
+| phi            | $\phi$: Phase offset  | 1     | 1     |
+| propagation    | Propagation direction | 1     | 1     |
+| phase_polarity | Phase polarity (y)    | 1     | 1     |
+
+| Parameter  | Description | Value |
+|:-----------|:------------|:------|
+| dark_theme | Dark Theme  | True  |
+
+#### Output:
+
+<p align='left'>
+  <img src='img/constructive_interference.gif'/>
+</p>
+
+#### 4. Destructive Interference
+
+| Parameter      | Description           | $W_1$ | $W_2$ |
+|:---------------|:----------------------|:------|:------|
+| A              | $A$: Amplitude        | 1     | 1     |
+| wavelength     | $\lambda$: Wavelength | 1     | 1     |
+| frequency      | $f$: Frequency        | 1     | 1     |
+| phi            | $\phi$: Phase offset  | 1     | 1     |
+| propagation    | Propagation direction | 1     | 1     |
+| phase_polarity | Phase polarity (y)    | 1     | 1     |
+
+| Parameter  | Description | Value |
+|:-----------|:------------|:------|
+| dark_theme | Dark Theme  | True  |
+
+#### Output:
+
+<p align='left'>
+  <img src='img/destructive_interference.gif'/>
+</p>
+
+#### 5. Perfect Destructive Interference (Cancellation)
+
+| Parameter      | Description           | $W_1$ | $W_2$ |
+|:---------------|:----------------------|:------|:------|
+| A              | $A$: Amplitude        | 1     | 1     |
+| wavelength     | $\lambda$: Wavelength | 1     | 1     |
+| frequency      | $f$: Frequency        | 1     | 1     |
+| phi            | $\phi$: Phase offset  | 1     | 1     |
+| propagation    | Propagation direction | 1     | 1     |
+| phase_polarity | Phase polarity (y)    | 1     | 1     |
+
+| Parameter  | Description | Value |
+|:-----------|:------------|:------|
+| dark_theme | Dark Theme  | True  |
+
+#### Output:
+
+<p align='left'>
+  <img src='img/wave_cancellation.gif'/>
+</p>
+
+#### 6. Fundamental Frequency + 2nd Harmonic
+
+| Parameter      | Description           | $W_1$ | $W_2$ |
+|:---------------|:----------------------|:------|:------|
+| A              | $A$: Amplitude        | 1     | 1     |
+| wavelength     | $\lambda$: Wavelength | 1     | 1     |
+| frequency      | $f$: Frequency        | 1     | 1     |
+| phi            | $\phi$: Phase offset  | 1     | 1     |
+| propagation    | Propagation direction | 1     | 1     |
+| phase_polarity | Phase polarity (y)    | 1     | 1     |
+
+| Parameter  | Description | Value |
+|:-----------|:------------|:------|
+| dark_theme | Dark Theme  | True  |
+
+#### Output:
+
+<p align='left'>
+  <img src='img/sine_wave_superposition_1.gif'/>
+</p>
+
+#### 7. General superposition
+
+| Parameter      | Description           | $W_1$ | $W_2$ |
+|:---------------|:----------------------|:------|:------|
+| A              | $A$: Amplitude        | 1     | 1     |
+| wavelength     | $\lambda$: Wavelength | 1     | 1     |
+| frequency      | $f$: Frequency        | 1     | 1     |
+| phi            | $\phi$: Phase offset  | 1     | 1     |
+| propagation    | Propagation direction | 1     | 1     |
+| phase_polarity | Phase polarity (y)    | 1     | 1     |
+
+| Parameter  | Description | Value |
+|:-----------|:------------|:------|
+| dark_theme | Dark Theme  | True  |
+
+#### Output:
+
+<p align='left'>
+  <img src='img/sine_wave_superposition_2.gif'/>
 </p>
