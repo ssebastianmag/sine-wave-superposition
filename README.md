@@ -97,14 +97,14 @@ $y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x \pm 2\pi \cdot \t
 
 #### 1. Standing waves
 
-|   Parameter    |      Description      | $W_1$  | $W_2$ |
-|:--------------:|:---------------------:|:------:|:-----:|
-|       A        |    $A$: Amplitude     |   1    |   1   |
-|   wavelength   | $\lambda$: Wavelength |   1    |   1   |
-|   frequency    |    $f$: Frequency     |   1    |   1   |
-|      phi       | $\phi$: Phase offset  |   1    |   1   |
-|  propagation   | Propagation direction |   1    |   1   |
-| phase_polarity |  Phase polarity (y)   |   1    |   1   |
+| Parameter      | Description           | $W_1$    | $W_2$    |
+|:---------------|:----------------------|:---------|:---------|
+| A              | $A$: Amplitude        | 5.0      | 5.0      |
+| wavelength     | $\lambda$: Wavelength | 10.0     | 10.0     |
+| frequency      | $f$: Frequency        | 90.0     | 90.0     |
+| phi            | $\phi$: Phase offset  | 0.0      | 0.0      |
+| propagation    | Propagation direction | right    | left     |
+| phase_polarity | Phase polarity (y)    | positive | positive |
 
 | Parameter  | Description | Value |
 |:----------:|:-----------:|:-----:|
@@ -113,19 +113,19 @@ $y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x \pm 2\pi \cdot \t
 #### Output:
 
 <p align='left'>
-  <img src='img/standing_waves.gif' width=90% />
+  <img src='img/standing_waves.gif'/>
 </p>
 
 #### 2. Wave beats
 
-| Parameter      | Description           | $W_1$ | $W_2$ |
-|:---------------|:----------------------|:------|:------|
-| A              | $A$: Amplitude        | 1     | 1     |
-| wavelength     | $\lambda$: Wavelength | 1     | 1     |
-| frequency      | $f$: Frequency        | 1     | 1     |
-| phi            | $\phi$: Phase offset  | 1     | 1     |
-| propagation    | Propagation direction | 1     | 1     |
-| phase_polarity | Phase polarity (y)    | 1     | 1     |
+| Parameter      | Description           | $W_1$    | $W_2$    |
+|:---------------|:----------------------|:---------|:---------|
+| A              | $A$: Amplitude        | 5.0      | 5.0      |
+| wavelength     | $\lambda$: Wavelength | 4.0      | 5.0      |
+| frequency      | $f$: Frequency        | 10.0     | 20.0     |
+| phi            | $\phi$: Phase offset  | 0.0      | 0.0      |
+| propagation    | Propagation direction | right    | right    |
+| phase_polarity | Phase polarity (y)    | positive | positive |
 
 | Parameter  | Description | Value |
 |:-----------|:------------|:------|
@@ -139,14 +139,14 @@ $y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x \pm 2\pi \cdot \t
 
 #### 3. Constructive Interference
 
-| Parameter      | Description           | $W_1$ | $W_2$ |
-|:---------------|:----------------------|:------|:------|
-| A              | $A$: Amplitude        | 1     | 1     |
-| wavelength     | $\lambda$: Wavelength | 1     | 1     |
-| frequency      | $f$: Frequency        | 1     | 1     |
-| phi            | $\phi$: Phase offset  | 1     | 1     |
-| propagation    | Propagation direction | 1     | 1     |
-| phase_polarity | Phase polarity (y)    | 1     | 1     |
+| Parameter      | Description           | $W_1$    | $W_2$    |
+|:---------------|:----------------------|:---------|:---------|
+| A              | $A$: Amplitude        | 10.0     | 5.0      |
+| wavelength     | $\lambda$: Wavelength | 10.0     | 10.0     |
+| frequency      | $f$: Frequency        | 90.0     | 90.0     |
+| phi            | $\phi$: Phase offset  | 0.0      | 0.0      |
+| propagation    | Propagation direction | right    | right    |
+| phase_polarity | Phase polarity (y)    | positive | positive |
 
 | Parameter  | Description | Value |
 |:-----------|:------------|:------|
@@ -160,14 +160,14 @@ $y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x \pm 2\pi \cdot \t
 
 #### 4. Destructive Interference
 
-| Parameter      | Description           | $W_1$ | $W_2$ |
-|:---------------|:----------------------|:------|:------|
-| A              | $A$: Amplitude        | 1     | 1     |
-| wavelength     | $\lambda$: Wavelength | 1     | 1     |
-| frequency      | $f$: Frequency        | 1     | 1     |
-| phi            | $\phi$: Phase offset  | 1     | 1     |
-| propagation    | Propagation direction | 1     | 1     |
-| phase_polarity | Phase polarity (y)    | 1     | 1     |
+| Parameter      | Description           | $W_1$    | $W_2$    |
+|:---------------|:----------------------|:---------|:---------|
+| A              | $A$: Amplitude        | 10.0     | 5.0      |
+| wavelength     | $\lambda$: Wavelength | 10.0     | 10.0     |
+| frequency      | $f$: Frequency        | 90.0     | 90.0     |
+| phi            | $\phi$: Phase offset  | 0.0      | $\pi$    |
+| propagation    | Propagation direction | right    | right    |
+| phase_polarity | Phase polarity (y)    | positive | positive |
 
 | Parameter  | Description | Value |
 |:-----------|:------------|:------|
@@ -181,14 +181,14 @@ $y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x \pm 2\pi \cdot \t
 
 #### 5. Perfect Destructive Interference (Cancellation)
 
-| Parameter      | Description           | $W_1$ | $W_2$ |
-|:---------------|:----------------------|:------|:------|
-| A              | $A$: Amplitude        | 1     | 1     |
-| wavelength     | $\lambda$: Wavelength | 1     | 1     |
-| frequency      | $f$: Frequency        | 1     | 1     |
-| phi            | $\phi$: Phase offset  | 1     | 1     |
-| propagation    | Propagation direction | 1     | 1     |
-| phase_polarity | Phase polarity (y)    | 1     | 1     |
+| Parameter      | Description           | $W_1$    | $W_2$    |
+|:---------------|:----------------------|:---------|:---------|
+| A              | $A$: Amplitude        | 10.0     | 10.0     |
+| wavelength     | $\lambda$: Wavelength | 10.0     | 10.0     |
+| frequency      | $f$: Frequency        | 90.0     | 90.0     |
+| phi            | $\phi$: Phase offset  | 0.0      | $\pi$    |
+| propagation    | Propagation direction | right    | right    |
+| phase_polarity | Phase polarity (y)    | positive | positive |
 
 | Parameter  | Description | Value |
 |:-----------|:------------|:------|
@@ -202,14 +202,14 @@ $y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x \pm 2\pi \cdot \t
 
 #### 6. Fundamental Frequency + 2nd Harmonic
 
-| Parameter      | Description           | $W_1$ | $W_2$ |
-|:---------------|:----------------------|:------|:------|
-| A              | $A$: Amplitude        | 1     | 1     |
-| wavelength     | $\lambda$: Wavelength | 1     | 1     |
-| frequency      | $f$: Frequency        | 1     | 1     |
-| phi            | $\phi$: Phase offset  | 1     | 1     |
-| propagation    | Propagation direction | 1     | 1     |
-| phase_polarity | Phase polarity (y)    | 1     | 1     |
+| Parameter      | Description           | $W_1$    | $W_2$    |
+|:---------------|:----------------------|:---------|:---------|
+| A              | $A$: Amplitude        | 5.0      | 2.5      |
+| wavelength     | $\lambda$: Wavelength | 4.0      | 2.0      |
+| frequency      | $f$: Frequency        | 90.0     | 180.0    |
+| phi            | $\phi$: Phase offset  | 0.0      | 0.0      |
+| propagation    | Propagation direction | right    | right    |
+| phase_polarity | Phase polarity (y)    | positive | positive |
 
 | Parameter  | Description | Value |
 |:-----------|:------------|:------|
@@ -223,14 +223,14 @@ $y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x \pm 2\pi \cdot \t
 
 #### 7. General superposition
 
-| Parameter      | Description           | $W_1$ | $W_2$ |
-|:---------------|:----------------------|:------|:------|
-| A              | $A$: Amplitude        | 1     | 1     |
-| wavelength     | $\lambda$: Wavelength | 1     | 1     |
-| frequency      | $f$: Frequency        | 1     | 1     |
-| phi            | $\phi$: Phase offset  | 1     | 1     |
-| propagation    | Propagation direction | 1     | 1     |
-| phase_polarity | Phase polarity (y)    | 1     | 1     |
+| Parameter      | Description           | $W_1$    | $W_2$    |
+|:---------------|:----------------------|:---------|:---------|
+| A              | $A$: Amplitude        | 10.0     | 5.0      |
+| wavelength     | $\lambda$: Wavelength | 6.0      | 10.0     |
+| frequency      | $f$: Frequency        | 90.0     | 110.0    |
+| phi            | $\phi$: Phase offset  | 0.0      | 0.0      |
+| propagation    | Propagation direction | right    | left     |
+| phase_polarity | Phase polarity (y)    | positive | negative |
 
 | Parameter  | Description | Value |
 |:-----------|:------------|:------|
