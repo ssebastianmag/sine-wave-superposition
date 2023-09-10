@@ -44,9 +44,8 @@ $\omega = 2\pi f$ is the angular frequency;
 $\phi$ is the phase offset;
 $+$ or $−$ depends on the direction of propagation (right or left).
 
----
 
-#### Superposition Principle
+### Superposition Principle
 
 The superposition principle states that when two or more waves overlap in space, 
 the resultant wave is the algebraic sum of their individual waves. 
@@ -54,8 +53,6 @@ the resultant wave is the algebraic sum of their individual waves.
 When two waves $W_1$ and $W_2$ interfere, the resultant wave $W_R$ can be given by:
 
 $$W_R(x, t) = W_1(x, t) + W_2(x, t)$$
-
----
 
 #### Interference patterns
 
@@ -69,7 +66,7 @@ sound wave interference.
 
 Constructive interference occurs when two or more waves meet at a point and their wave 
 crests perfectly coincide. This results in a new wave with an amplitude that is the sum of the 
-individual amplitudes. If $ A_1$ and $ A_2$ are the amplitudes of the two interacting waves, 
+individual amplitudes. If $A_1$ and $A_2$ are the amplitudes of the two interacting waves, 
 the amplitude $A$ of the resulting wave is:
 
 $$A = A_1 + A_2$$
@@ -84,7 +81,7 @@ $$A = | A_1 - A_2 |$$
 
 ---
 
-#### Wave Model Parameters
+### Wave Model Parameters
 >model_sinewave()
 
 |                | Parameter             | Type                      | Description                                                    |
@@ -102,9 +99,7 @@ These parameters can be used to represent the waves in the model:
 
 $$y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x - 2\pi \cdot \text{frequency} \cdot t + \phi \right)$$
 
----
-
-#### Superposition Plot Parameters
+### Superposition Plot Parameters
 >plot_wave_superposition()
 
 |               | Parameter                 | Type            | Description                                  |
@@ -117,7 +112,29 @@ $$y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x - 2\pi \cdot \te
 
 ### Modeling of sine wave superposition phenomena and interference patterns
 
-#### Ex. 1 - Standing waves
+#### ex. 1 - Standing waves
+#### Parameters:
+
+|                |       Parameter        | $W_1$  | $W_2$ |
+|:--------------:|:----------------------:|:------:|:-----:|
+|      $A$       |       Amplitude        |   1    |   1   |
+|   $\lambda$    |       Wavelength       |   1    |   1   |
+|      $f$       |       Frequency        |   1    |   1   |
+|     $\phi$     |      Phase offset      |   1    |   1   |
+|  propagation   | Propagation direction  |   1    |   1   |
+| phase polarity |     Phase polarity     |   1    |   1   |
+
+|             | Parameter  | Value |
+|:-----------:|:----------:|:-----:|
+| dark_theme  | Dark Theme | True  |
+
+#### Output:
+
+<p align='left'>
+  <img src='img/(3,2,1)[lt].png' width=60% />
+</p>
+
+#### ex. 2 - Wave beats
 #### Parameters:
 
 |                |       Parameter        | $W_1$  | $W_2$ |
