@@ -1,5 +1,5 @@
 # One-Dimensional Superposition of Sine Waves
-### Linear Superposition of Waveforms and Resultant Interference Patterns.
+    Linear Superposition of Waveforms and Resultant Interference Patterns.
 
 Modeling and visualization of the superposition 
 principle in one dimension.
@@ -31,6 +31,8 @@ $\omega = 2\pi f$ is the angular frequency
 $\phi$ is the phase offset
 $+$ or $−$ depends on the direction of propagation (right or left)
 
+---
+
 #### Superposition Principle
 
 The superposition principle states that when two or more waves overlap in space, 
@@ -39,6 +41,8 @@ the resultant wave is the algebraic sum of their individual waves.
 When two waves $W_1$ and $W_2$ interfere, the resultant wave $W_R$ can be given by:
 
 $$W_R(x, t) = W_1(x, t) + W_2(x, t)$$
+
+---
 
 #### Interference patterns
 
@@ -65,6 +69,8 @@ The amplitude $A$ of the resulting wave will be:
 
 $$A = | A_1 - A_2 |$$
 
+---
+
 #### Wave Model Parameters
 >model_sinewave()
 
@@ -82,6 +88,8 @@ $$A = | A_1 - A_2 |$$
 These parameters can be used to represent the waves in the model:
 
 $$y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x - 2\pi \cdot \text{frequency} \cdot t + \phi \right)$$
+
+---
 
 #### Superposition Plot Parameters
 >plot_wave_superposition()
