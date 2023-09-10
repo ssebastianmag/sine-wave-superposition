@@ -48,9 +48,8 @@ $+$ or $−$ depends on the direction of propagation (right or left)
 ### Superposition Principle
 
 The superposition principle states that when two or more waves overlap in space, 
-the resultant wave is the algebraic sum of their individual waves. 
-
-When two waves $W_1$ and $W_2$ interfere, the resultant wave $W_R$ can be given by:
+the resultant wave is the algebraic sum of their individual waves. When two waves $W_1$ and $W_2$ 
+interfere, the resultant wave $W_R$ can be given by:
 
 $W_R(x, t) = W_1(x, t) + W_2(x, t)$
 
@@ -67,12 +66,12 @@ sound wave interference.
 
 | Parameter      | Description                                                                       | Type              |
 |:---------------|:----------------------------------------------------------------------------------|:------------------|
-| x              | Positions of the wave: Positions where the wave is evaluated (m)                  | numpy.ndarray     |
-| t              | Time of evaluation: Time at which the wave is evaluated (s)                       | float             |
-| A              | Amplitude: Maximum displacement from equilibrium (m)                              | float             |
-| wavelength     | Wavelength: Length of one complete wave cycle (m)                                 | float             |
-| frequency      | Frequency: Number of oscillations per second (Hz)                                 | float             |
-| phi            | Phase offset: Shifts the wave horizontally (radians)                              | float (optional)  |
+| x              | Positions of the wave ($x$): Positions where the wave is evaluated (m)            | numpy.ndarray     |
+| t              | Time of evaluation ($t$): Time at which the wave is evaluated (s)                 | float             |
+| A              | Amplitude ($A$): Maximum displacement from equilibrium (m)                        | float             |
+| wavelength     | Wavelength ($\lambda$): Length of one complete wave cycle (m)                     | float             |
+| frequency      | Frequency ($f$): Number of oscillations per second (Hz)                           | float             |
+| phi            | Phase offset ($\phi$): Shifts the wave horizontally (radians)                     | float (optional)  |
 | propagation    | Propagation direction: 'Right' for positive x-direction, 'Left' for negative      | string (optional) |
 | phase_polarity | Phase polarity (y): 'Positive' retains form, 'Negative' flips the wave vertically | string (optional) |
 
