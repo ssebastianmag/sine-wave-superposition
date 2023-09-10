@@ -1,8 +1,7 @@
 # One-Dimensional Superposition of Sine Waves
-    Linear Superposition of Waveforms and Resultant Interference Patterns
 
-Modeling and visualization of the superposition 
-principle in one dimension.
+Modeling and visualization of linear superposition of sine waves 
+and resultant interference patterns 
 
 * Python 3.11.4
 * Matplotlib 3.7.2 
@@ -79,7 +78,7 @@ sound wave interference.
 
 These parameters can be used to represent the waves in the model:
 
-$y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x \pm 2\pi \cdot \text{frequency} \cdot t + \phi \right)$
+### $y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x \pm 2\pi \cdot \text{frequency} \cdot t + \phi \right)$
 
 ---
 
