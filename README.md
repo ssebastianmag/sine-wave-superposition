@@ -63,7 +63,7 @@ sound wave interference.
 ---
 
 ### Wave Model Parameters
->model_sinewave()
+>model_sinewave() function
 
 | Parameter      | Description                                                                       | Type              |
 |:---------------|:----------------------------------------------------------------------------------|:------------------|
@@ -78,12 +78,12 @@ sound wave interference.
 
 These parameters can be used to represent the waves in the model:
 
-$$y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x - 2\pi \cdot \text{frequency} \cdot t + \phi \right)$$
+$y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x - 2\pi \cdot \text{frequency} \cdot t + \phi \right)$
 
 ---
 
 ### Superposition Plot Parameters
->plot_wave_superposition()
+>plot_wave_superposition() function
 
 | Parameter     | Description                                              | Type            |
 |:--------------|:---------------------------------------------------------|:----------------|
