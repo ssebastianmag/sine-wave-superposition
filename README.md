@@ -33,7 +33,7 @@ principle in one dimension.
 
 The sine wave equation in one-dimension can be represented as:
 
-$$y(x, t) = A \sin(kx \pm \omega t + \phi)$$
+$y(x, t) = A \sin(kx \pm \omega t + \phi)$
 
 where:
 
@@ -52,7 +52,7 @@ the resultant wave is the algebraic sum of their individual waves.
 
 When two waves $W_1$ and $W_2$ interfere, the resultant wave $W_R$ can be given by:
 
-$$W_R(x, t) = W_1(x, t) + W_2(x, t)$$
+$W_R(x, t) = W_1(x, t) + W_2(x, t)$
 
 Interference patterns are the result of the superposition of two or more waves.
 These patterns can be either constructive or destructive depending on the phase 
@@ -113,7 +113,7 @@ $y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x \pm 2\pi \cdot \t
 #### Output:
 
 <p align='left'>
-  <img src='img/standing_waves.gif' width=60% />
+  <img src='img/standing_waves.gif' width=90% />
 </p>
 
 #### 2. Wave beats
@@ -134,5 +134,5 @@ $y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x \pm 2\pi \cdot \t
 #### Output:
 
 <p align='left'>
-  <img src='img/wave_beats.gif' width=60% />
+  <img src='img/wave_beats.gif' width=90% />
 </p>
