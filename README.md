@@ -1,5 +1,5 @@
 # One-Dimensional Superposition of Sine Waves
-    Linear Superposition of Waveforms and Resultant Interference Patterns.
+    Linear Superposition of Waveforms and Resultant Interference Patterns
 
 Modeling and visualization of the superposition 
 principle in one dimension.
@@ -37,13 +37,13 @@ $$y(x, t) = A \sin(kx \pm \omega t + \phi)$$
 
 where:
 
-$y(x,t)$ is the wave displacement at position $x$ and time $t$;
-$A$ is the amplitude;
-$k = \frac{2\pi}{\lambda}$ is the wave number;
-$\omega = 2\pi f$ is the angular frequency;
-$\phi$ is the phase offset;
-$+$ or $−$ depends on the direction of propagation (right or left).
-
+$y(x,t)$ is the wave displacement at position $x$ and time $t$</br>
+$A$ is the amplitude</br>
+$k = \frac{2\pi}{\lambda}$ is the wave number</br>
+$\omega = 2\pi f$ is the angular frequency</br>
+$\phi$ is the phase offset</br>
+$+$ or $−$ depends on the direction of propagation (right or left)
+</br>
 
 ### Superposition Principle
 
@@ -58,26 +58,9 @@ $$W_R(x, t) = W_1(x, t) + W_2(x, t)$$
 
 Interference patterns are the result of the superposition of two or more waves.
 These patterns can be either constructive or destructive depending on the phase 
-and amplitude of the interacting waves.  These patterns can display areas of both constructive and 
+and amplitude of the interacting waves. These patterns can display areas of both constructive and 
 destructive interference, and they are commonly seen in phenomena like double-slit experiments and 
 sound wave interference.
-
-- Constructive Interference
-
-Constructive interference occurs when two or more waves meet at a point and their wave 
-crests perfectly coincide. This results in a new wave with an amplitude that is the sum of the 
-individual amplitudes. If $A_1$ and $A_2$ are the amplitudes of the two interacting waves, 
-the amplitude $A$ of the resulting wave is:
-
-$$A = A_1 + A_2$$
-
-- Destructive Interference
-
-Destructive interference occurs when two or more waves meet at a point and their wave crests 
-perfectly negate each other. The wave amplitude at that point becomes zero or is reduced.
-The amplitude $A$ of the resulting wave will be:
-
-$$A = | A_1 - A_2 |$$
 
 ---
 
