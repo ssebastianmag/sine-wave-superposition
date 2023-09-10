@@ -55,7 +55,9 @@ $W_R(x, t) = W_1(x, t) + W_2(x, t)$
 
 Interference patterns are the result of the superposition of two or more waves.
 These patterns can be either constructive or destructive depending on the phase 
-and amplitude of the interacting waves. These patterns can display areas of both constructive and 
+and amplitude of the interacting waves. 
+
+These patterns can display areas of both constructive and 
 destructive interference, and they are commonly seen in phenomena like double-slit experiments and 
 sound wave interference.
 
@@ -64,16 +66,16 @@ sound wave interference.
 ### Wave Model Parameters
 >model_sinewave() function
 
-| Parameter      | Description                                                                       | Type              |
-|:---------------|:----------------------------------------------------------------------------------|:------------------|
-| x              | Positions of the wave ($x$): Positions where the wave is evaluated (m)            | numpy.ndarray     |
-| t              | Time of evaluation ($t$): Time at which the wave is evaluated (s)                 | float             |
-| A              | Amplitude ($A$): Maximum displacement from equilibrium (m)                        | float             |
-| wavelength     | Wavelength ($\lambda$): Length of one complete wave cycle (m)                     | float             |
-| frequency      | Frequency ($f$): Number of oscillations per second (Hz)                           | float             |
-| phi            | Phase offset ($\phi$): Shifts the wave horizontally (radians)                     | float (optional)  |
-| propagation    | Propagation direction: 'Right' for positive x-direction, 'Left' for negative      | string (optional) |
-| phase_polarity | Phase polarity (y): 'Positive' retains form, 'Negative' flips the wave vertically | string (optional) |
+| Parameter      | Description                                                                            | Type              |
+|:---------------|:---------------------------------------------------------------------------------------|:------------------|
+| x              | Positions of the wave ($x$): Positions where the wave is evaluated (m)                 | numpy.ndarray     |
+| t              | Time of evaluation ($t$): Time at which the wave is evaluated (s)                      | float             |
+| A              | Amplitude ($A$): Maximum displacement from equilibrium (m)                             | float             |
+| wavelength     | Wavelength ($\lambda$): Length of one complete wave cycle (m)                          | float             |
+| frequency      | Frequency ($f$): Number of oscillations per second (Hz)                                | float             |
+| phi            | Phase offset ($\phi$): Shifts the wave horizontally (radians)                          | float (optional)  |
+| propagation    | Propagation direction (x-axis): 'right' for positive, 'left' for negative              | string (optional) |
+| phase_polarity | Phase polarity (y-axis): 'positive' retains form, 'negative' flips the wave vertically | string (optional) |
 
 These parameters can be used to represent the waves in the model:
 
