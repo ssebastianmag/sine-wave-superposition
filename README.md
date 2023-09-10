@@ -1,140 +1,119 @@
-# Sine wave superposition
+# One-Dimensional Superposition of Sine Waves
+### Linear Superposition of Waveforms and Resultant Interference Patterns.
 
-Modeling and visualization of the superposition principle for two traveling sine waves
+Modeling and visualization of the superposition 
+principle in one dimension.
 
-* Python 3.10.4
-* Matplotlib 3.6.0
-* Seaborn 0.12.0
-* NumPy 1.23.3
-
----
-### Files / Modules - Execution alternatives
-* [IPython Notebook / Jupyter Notebook](sine_wave_superposition.ipynb)
-* [Module with command line arguments](sine_wave_superposition_run.py)
-* [Main module - sine_wave_superposition.py](sine_wave_superposition.py)
----
-
-### Superposition principle
-
->The superposition principle states that, for all linear systems, 
-> the net response caused by two or more stimuli is the sum of the 
-> responses that would have been caused by each stimulus individually.
-
-
-The interaction of two or more waves traveling along the same medium will produce an interference pattern, containing 
-a resultant wave composed of a vector sum with the displacement of each inidividual wave at any particular 
-point in the medium where the interaction takes place.
-<br><br>
-<p align='left'>
-  <img src='img/Sine wave superposition (w1A=10mm, w1f=180Hz) + (w2A=20mm, w2f=-240Hz).gif'/>
-</p>
-<br>
-The modules in this repository present a very simple and minimal approach of modeling and plotting the 
-superposition of two sine waves traveling in the same medium, with the displacement being measured in millimeters 
-at the Y axis and time expressed as centiseconds along the X axis.
-<br><br>
-After describing the sine waves to superpose, the output will produce and save (in .gif format) a 
-200-frame animation which can be used to describe the interference scenarios below:<br><br>
-
-- Constructive interference
-- Destructive interference
-- Wave beats
-- Standing waves
-
-The sine wave modeling is also simple and minimal on its requirements and supports the following attributes:
-- Amplitude
-- Frequency
-- Direction
-- Phase polarity
----
-
-### Execution
-#### Command line arguments:
-
-```
-$ python sine_wave_superposition_run.py --help
-```
-
-```
-usage: sine_wave_superposition_run.py [-h] [-ipw1] [-ipw2] wa1 wf1 wa2 wf2
-
-Model two traveling sine waves by definition of the General form y(t) = Asin(ωt)
-and plot their superposition and resultant wave
-
-About wave modeling:
- - Positive frequencies will be displayed as leftward traveling
- - Negative frequencies will be displayed as rightward traveling
- - Inverting the polarity will shift the wave phase by 180°
-
-positional arguments:
-  wa1         Wave 1 - Amplitude in mm
-  wf1         Wave 1 - Frequency in Hz
-  wa2         Wave 2 - Amplitude in mm
-  wf2         Wave 2 - Frequency in Hz
-
-options:
-  -h, --help  show this help message and exit
-  -ipw1       Wave 1 - Inverts wave polarity
-  -ipw2       Wave 2 - Inverts wave polarity
-
-```
----
-
-Notice: _All of the samples below have a reduced frame length for compression purposes._
+* Python 3.11.4
+* Matplotlib 3.7.2 
+* Seaborn 0.12.2 
+* NumPy 1.25.2
 
 ---
+### Main Project Files
+* [Standalone Module](sine_wave_superposition.py)
+* [IPython Notebook / Jupyter Notebook](sine_wave_superposition_notebook.ipynb)
+---
 
-#### Input args:
-    $ python sine_wave_superposition_run.py 10 180 20 -240 -ipw1
+### Theoretical Background
+#### Wave Equation
+
+The sine wave equation in one-dimension can be represented as:
+
+$$y(x, t) = A \sin(kx \pm \omega t + \phi)$$
+
+where:
+
+$y(x,t)$ is the wave displacement at position $x$ and time $t$
+$A$ is the amplitude
+$k = \frac{2\pi}{\lambda}$ is the wave number
+$\omega = 2\pi f$ is the angular frequency
+$\phi$ is the phase offset
+$+$ or $−$ depends on the direction of propagation (right or left)
+
+#### Superposition Principle
+
+The superposition principle states that when two or more waves overlap in space, 
+the resultant wave is the algebraic sum of their individual waves. 
+
+When two waves $W_1$ and $W_2$ interfere, the resultant wave $W_R$ can be given by:
+
+$$W_R(x, t) = W_1(x, t) + W_2(x, t)$$
+
+#### Interference patterns
+
+Interference patterns are the result of the superposition of two or more waves.
+These patterns can be either constructive or destructive depending on the phase 
+and amplitude of the interacting waves.  These patterns can display areas of both constructive and 
+destructive interference, and they are commonly seen in phenomena like double-slit experiments and 
+sound wave interference.
+
+- Constructive Interference
+
+Constructive interference occurs when two or more waves meet at a point and their wave 
+crests perfectly coincide. This results in a new wave with an amplitude that is the sum of the 
+individual amplitudes. If $ A_1$ and $ A_2$ are the amplitudes of the two interacting waves, 
+the amplitude $A$ of the resulting wave is:
+
+$$A = A_1 + A_2$$
+
+- Destructive Interference
+
+Destructive interference occurs when two or more waves meet at a point and their wave crests 
+perfectly negate each other. The wave amplitude at that point becomes zero or is reduced.
+The amplitude $A$ of the resulting wave will be:
+
+$$A = | A_1 - A_2 |$$
+
+#### Wave Model Parameters
+>model_sinewave()
+
+|                | Parameter             | Type                      | Description                                                    |
+|:---------------|:----------------------|:--------------------------|:---------------------------------------------------------------|
+| x              | Positions of the wave | numpy.ndarray             | Positions where the wave is evaluated (m).                     |
+| t              | Time of evaluation    | float                     | Time at which the wave is evaluated (s).                       |
+| A              | Amplitude             | float                     | Maximum displacement from equilibrium (m).                     |
+| wavelength     | Wavelength            | float                     | Length of one complete wave cycle (m).                         |
+| frequency      | Frequency             | float                     | Number of oscillations per second (Hz).                        |
+| phi            | Phase offset          | float (optional)          | Shifts the wave horizontally (radians).                        |
+| propagation    | Propagation direction | string (optional)         | 'Right' for positive x-direction, 'Left' for negative.         |
+| phase_polarity | Phase polarity        | string (optional)         | 'Positive' retains form, 'Negative' flips the wave vertically. |
+
+These parameters can be used to represent the waves in the model:
+
+$$y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x - 2\pi \cdot \text{frequency} \cdot t + \phi \right)$$
+
+#### Superposition Plot Parameters
+>plot_wave_superposition()
+
+|               | Parameter                 | Type            | Description                                  |
+|:--------------|:--------------------------|:----------------|:---------------------------------------------|
+| wave_1_params | Wave 1 Parameters         | dictionary      | Wave 1 model_sinewave Parameters             |
+| wave_2_params | Wave 2 Parameters         | dictionary      | Wave 2 model_sinewave Parameters             |
+| dark_theme    | Dark Theme                | bool (optional) | If True, uses a dark background for the plot |
+
+---
+
+### Modeling of sine wave superposition phenomena and interference patterns
+
+#### Ex. 1 - Standing waves
+#### Parameters:
+
+|                |       Parameter        | $W_1$  | $W_2$ |
+|:--------------:|:----------------------:|:------:|:-----:|
+|      $A$       |       Amplitude        |   1    |   1   |
+|   $\lambda$    |       Wavelength       |   1    |   1   |
+|      $f$       |       Frequency        |   1    |   1   |
+|     $\phi$     |      Phase offset      |   1    |   1   |
+|  propagation   | Propagation direction  |   1    |   1   |
+| phase polarity |     Phase polarity     |   1    |   1   |
+
+|             | Parameter  | Value |
+|:-----------:|:----------:|:-----:|
+| dark_theme  | Dark Theme | True  |
 
 #### Output:
 
 <p align='left'>
-  <img src='img/Sine wave superposition (w1A=10mm, w1f=180Hz) + (w2A=20mm, w2f=-240Hz).gif'/>
+  <img src='img/(3,2,1)[lt].png' width=60% />
 </p>
-
----
-
-#### Input args:
-    $ python sine_wave_superposition_run.py 10 140 10 -140
-
-#### Output:
-
-<p align='left'>
-  <img src='img/Sine wave superposition (w1A=10mm, w1f=140Hz) + (w2A=10mm, w2f=-140Hz).gif'/>
-</p>
-
----
-
-#### Input args:
-    $ python sine_wave_superposition_run.py 10 180 10 180 -ipw1
-
-#### Output:
-
-<p align='left'>
-  <img src='img/Sine wave superposition (w1A=10mm, w1f=180Hz) + (w2A=10mm, w2f=180Hz).gif'/>
-</p>
-
----
-
-#### Input args:
-    $ python sine_wave_superposition_run.py 10 300 10 210
-
-#### Output:
-
-<p align='left'>
-  <img src='img/Sine wave superposition (w1A=10mm, w1f=300Hz) + (w2A=10mm, w2f=210Hz).gif'/>
-</p>
-
----
-
-#### Input args:
-    $ python sine_wave_superposition_run.py 20 90 10 -240
-
-#### Output:
-
-<p align='left'>
-  <img src='img/Sine wave superposition (w1A=20mm, w1f=90Hz) + (w2A=10mm, w2f=-240Hz).gif'/>
-</p>
-
----
