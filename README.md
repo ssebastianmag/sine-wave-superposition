@@ -78,7 +78,7 @@ sound wave interference.
 
 These parameters can be used to represent the waves in the model:
 
-$y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x - 2\pi \cdot \text{frequency} \cdot t + \phi \right)$
+$y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x \pm 2\pi \cdot \text{frequency} \cdot t + \phi \right)$
 
 ---
 
@@ -113,7 +113,7 @@ $y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x - 2\pi \cdot \tex
 #### Output:
 
 <p align='left'>
-  <img src='img/(3,2,1)[lt].png' width=60% />
+  <img src='img/standing_waves.gif' width=60% />
 </p>
 
 #### 2. Wave beats
@@ -134,5 +134,5 @@ $y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x - 2\pi \cdot \tex
 #### Output:
 
 <p align='left'>
-  <img src='img/(3,2,1)[lt].png' width=60% />
+  <img src='img/wave_beats.gif' width=60% />
 </p>
