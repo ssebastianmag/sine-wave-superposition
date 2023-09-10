@@ -67,16 +67,16 @@ sound wave interference.
 ### Wave Model Parameters
 >model_sinewave()
 
-|                | Parameter             | Type                      | Description                                                    |
-|:---------------|:----------------------|:--------------------------|:---------------------------------------------------------------|
-| x              | Positions of the wave | numpy.ndarray             | Positions where the wave is evaluated (m).                     |
-| t              | Time of evaluation    | float                     | Time at which the wave is evaluated (s).                       |
-| A              | Amplitude             | float                     | Maximum displacement from equilibrium (m).                     |
-| wavelength     | Wavelength            | float                     | Length of one complete wave cycle (m).                         |
-| frequency      | Frequency             | float                     | Number of oscillations per second (Hz).                        |
-| phi            | Phase offset          | float (optional)          | Shifts the wave horizontally (radians).                        |
-| propagation    | Propagation direction | string (optional)         | 'Right' for positive x-direction, 'Left' for negative.         |
-| phase_polarity | Phase polarity        | string (optional)         | 'Positive' retains form, 'Negative' flips the wave vertically. |
+| Parameter      | Description                                                                   | Type              |
+|:---------------|:------------------------------------------------------------------------------|:------------------|
+| x              | Positions of the wave: Positions where the wave is evaluated (m)              | numpy.ndarray     |
+| t              | Time of evaluation: Time at which the wave is evaluated (s)                   | float             |
+| A              | Amplitude: Maximum displacement from equilibrium (m)                          | float             |
+| wavelength     | Wavelength: Length of one complete wave cycle (m)                             | float             |
+| frequency      | Frequency: Number of oscillations per second (Hz)                             | float             |
+| phi            | Phase offset: Shifts the wave horizontally (radians)                          | float (optional)  |
+| propagation    | Propagation direction: 'Right' for positive x-direction, 'Left' for negative  | string (optional) |
+| phase_polarity | Phase polarity: 'Positive' retains form, 'Negative' flips the wave vertically | string (optional) |
 
 These parameters can be used to represent the waves in the model:
 
@@ -85,11 +85,11 @@ $$y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x - 2\pi \cdot \te
 ### Superposition Plot Parameters
 >plot_wave_superposition()
 
-|               | Parameter                 | Type            | Description                                  |
-|:--------------|:--------------------------|:----------------|:---------------------------------------------|
-| wave_1_params | Wave 1 Parameters         | dictionary      | Wave 1 model_sinewave Parameters             |
-| wave_2_params | Wave 2 Parameters         | dictionary      | Wave 2 model_sinewave Parameters             |
-| dark_theme    | Dark Theme                | bool (optional) | If True, uses a dark background for the plot |
+| Parameter     | Description                                              | Type            |
+|:--------------|:---------------------------------------------------------|:----------------|
+| wave_1_params | Wave 1 Parameters                                        | dictionary      |
+| wave_2_params | Wave 2 Parameters                                        | dictionary      |
+| dark_theme    | Dark Theme: If True, uses a dark background for the plot | bool (optional) |
 
 ---
 
