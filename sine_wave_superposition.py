@@ -1,132 +1,251 @@
-# _________ _________ _________
-# Sine wave superposition
+# --- --- --- --- --- --- --- --- ---
+# One-Dimensional Superposition of Sine Waves
 
-# Author: Sebastian Mag. | Date: Oct 06/2022
-# Source code: https://github.com/cmd098/sine-wave-superposition
+# Sebastian Mag | August 2023
+# https://github.com/ssebastianmag/sine-wave-superposition
 
-# Summary:
-# Modeling and visualization of the superposition principle for two traveling sine waves
-# by definition of the general form y(t) = Asin(ωt)
-# _________ _________ _________
+# Modeling and Visualization of linear superposition
+# of waveforms and resultant interference patterns
+# --- --- --- --- --- --- --- --- ---
 
+from matplotlib.colors import LinearSegmentedColormap
 from matplotlib.animation import FuncAnimation
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
-# Set custom matplotlib default font
-plt.rcParams['font.family'] = 'STIXGeneral'
-plt.rcParams['mathtext.fontset'] = 'stix'
 
-def plot_wave_superposition(wa1, wf1, wa2, wf2, ipw1=False, ipw2=False):
-    """
-    Models two traveling sine waves by definition of the General form y(t) = Asin(ωt)
-    and plots their superposition and resultant wave
-
-    Args:
-        wa1 (float, Positve): Wave 1 - Amplitude in mm
-        wf1 (float, Real): Wave 1 - Frequency in Hz
-        wa2 (float, Positive): Wave 2 - Amplitude in mm
-        wf2 (float, Real): Wave 2 - Frequency in Hz
-
-        ipw1 (bool, [optional]): Wave 1 - Inverts wave polarity [Defaults to False]
-        ipw2 (bool, [optional]): Wave 2 - Inverts wave polarity [Defaults to False]
-
-    About wave modeling:
-        Positive frequencies will be displayed as leftward traveling
-        Negative frequencies will be displayed as rightward traveling
-        Inverting the polarity will shift the wave phase by 180°
+def model_sinewave(x, t, A, wavelength, frequency, phi=0, propagation='right', phase_polarity='positive'):
+    """ Calculate the displacement of a 1D sine wave at positions x and time t.
+        Args:
+            x (numpy.ndarray): positions at which the wave is evaluated (m)
+            t (float): time at which the wave is evaluated (s)
+            A (float): amplitude (m)
+            wavelength (float): wavelength (m)
+            frequency (float): frequency (Hz)
+            phi (float, optional): phase offset of the wave (radians)
+            propagation (str, optional): direction of wave propagation ('right' or 'left')
+            phase_polarity (str, optional): vertical flipping of the wave ('positive' or 'negative')
+        Returns:
+            numpy.ndarray: wave displacement at a given position and time
     """
 
-    # Initialize figure and axes
+    # Wave number and Angular frequency
+    k = 2 * np.pi / wavelength
+    omega = 2 * np.pi * frequency
 
+    # Phase polarity and Propagation direction factor
+    polarity = 1 if phase_polarity.lower() == 'positive' else -1
+    propagation_factor = -1 if propagation.lower() == 'right' else 1
+
+    # Evaluate the sine wave at given x and t
+    # y(x, t) = (+-) A * sin(k * x (+-) omega * t + phi)
+    return polarity * A * np.sin(k * x + propagation_factor * omega * t + phi)
+
+
+def plot_wave_superposition(wave_1_params, wave_2_params, dark_theme=False):
+    """ Plot and animate the superposition of two 1D waves.
+
+        Args:
+            wave_1_params (dict): W1, wave 1 parameters
+            wave_2_params (dict): W2, wave 2 parameters
+            dark_theme (bool, optional): if True, uses a dark background for the plot
+    """
+
+    # Custom settings for plot aesthetics
     sns.set_theme()
-    fig, ax = plt.subplots(2, 2, figsize=(15, 6), sharex='all')
-    fig.subplots_adjust(wspace=0.15, hspace=0.4)
-    fig.subplots_adjust(top=0.79)
+    plt.rcParams['font.family'] = 'STIXGeneral'
+    plt.rcParams['mathtext.fontset'] = 'stix'
+    if dark_theme:
+        plt.style.use('dark_background')
+        plt.rcParams.update({'grid.linewidth': 0.5, 'grid.alpha': 0.2})
 
-    # Initialize objects to animate
+    # Custom colormaps
+    wave_1_cm = LinearSegmentedColormap.from_list(
+        'wave_1_cm', colors=['#3c3060', '#3480a4', '#3c3060'], N=100
+    )
+    wave_2_cm = LinearSegmentedColormap.from_list(
+        'wave_2_cm', colors=['#581e4f', '#d2204c', '#581e4f'], N=100
+    )
+    superposition_cm = LinearSegmentedColormap.from_list(
+        'superposition_cm', colors=['#ddd7d7', '#3480a4', '#ddd7d7', '#d2204c', '#ddd7d7'], N=100)
 
-    w1, = ax[0, 0].plot([], [], color='#7383c3')  # wave 1
-    w2, = ax[1, 0].plot([], [], color='#71768b')  # wave 2
+    # Update function to animate the plot
+    def update(num):
+        # Adjust time step based on max frequency
+        max_frequency = max(wave_1_params['frequency'], wave_2_params['frequency'])
+        t = num * 0.025 / max_frequency
 
-    sw1, = ax[0, 1].plot([], [], color='#7383c3')  # superposed wave 1
-    sw2, = ax[0, 1].plot([], [], color='#71768b')  # superposed wave 2
+        # Calculate y-values for Wave 1, Wave 2, and Resultant Wave (Superposition)
+        yw1 = model_sinewave(x, t, **wave_1_params)
+        yw2 = model_sinewave(x, t, **wave_2_params)
+        ywr = yw1 + yw2
 
-    rw, = ax[1, 1].plot([], [], color='#53587a')  # resultant wave
+        # Get custom color map colors for each object
+        norm_val = num / 200
+        wave_1_color = wave_1_cm(norm_val)
+        wave_2_color = wave_2_cm(norm_val)
+        superposition_color = superposition_cm(norm_val)
 
-    # Set axes ticks, labels and limits
+        # Update y-values and colors
+        w1.set_ydata(yw1)  # Wave 1
+        w1.set_color(wave_1_color)
 
-    wa = [abs(wa1), abs(wa2)]  # wave amplitudes
+        w2.set_ydata(yw2)  # Wave 2
+        w2.set_color(wave_2_color)
 
-    plt.setp(ax, xlim=(0, 5), ylim=(-(sum(wa) + 2), sum(wa) + 2))
+        w1sp.set_ydata(yw1)  # W1 superimposed pattern
+        w1sp.set_color(wave_1_color)
 
-    for x in range(2):
-        for y in range(2):
-            ax[x, y].set_yticks(np.linspace(-sum(wa), sum(wa), 7))
-            ax[x, y].yaxis.set_major_formatter(plt.FormatStrFormatter('%.1f'))
+        w2sp.set_ydata(yw2)  # W2 superimposed pattern
+        w2sp.set_color(wave_2_color)
 
-    ax[1, 0].set_xticks(np.arange(0, 5, 1))
-    ax[1, 0].set_xticklabels([l.get_text() + r'$x 10^{-2}$' for l in ax[1, 1].get_xticklabels()])
+        wr.set_ydata(ywr)  # Resultant wave
+        wr.set_color(superposition_color)
 
-    plt.setp(ax[1, 0].get_xticklabels()[0], visible=False)
-    plt.setp(ax[1, 1].get_xticklabels()[0], visible=False)
+        # Return updated line objects for animation
+        return w1, w2, w1sp, w2sp, wr
 
-    # Sine wave modeling - General form as a function of time (t)
-    x = np.arange(0.05, 4.95, 0.001)  # t=5.10^-2 s; (5 cs)
+    #  Function to set y-axis ticks and limits
+    def set_axis_yticks_and_limits(subplot_ax, amplitude):
+        y_ticks = np.linspace(-amplitude * 1.5, amplitude * 1.5, 7)
+        subplot_ax.set_ylim(-amplitude * 1.5, amplitude * 1.5)
+        subplot_ax.set_yticks(y_ticks)
 
-    def animate(i):
+    # Initialize plot figure
+    fig, ax = plt.subplots(2, 2, figsize=(15, 7))
+    fig.subplots_adjust(wspace=0.15, hspace=1)
+    fig.subplots_adjust(top=0.76, bottom=0.14)
 
-        # y(t) = Asin(ωt); ω = 2πf
+    # Set the x-axis range based on the maximum wavelength
+    n = 500
+    max_wavelength = max(wave_1_params['wavelength'], wave_2_params['wavelength'])
+    x = np.linspace(0, 8 * max_wavelength, n)
 
-        p = -1 if ipw1 else 1
-        w1y = wa1 * p * np.sin((2 * np.pi * (wf1 * 0.01)) * x + 0.17 * i)
-        p = -1 if ipw2 else 1
-        w2y = wa2 * p * np.sin((2 * np.pi * (wf2 * 0.01)) * x + 0.17 * i)
+    # Initialize line objects for animation
+    w1, = ax[0, 0].plot(x, np.zeros(n), color='#7383c3', )  # Wave 1
+    w2, = ax[1, 0].plot(x, np.zeros(n), color='#71768b')  # Wave 2
+    w1sp, = ax[0, 1].plot(x, np.zeros(n), color='#7383c3', linestyle=':')  # W1 superimposed pattern
+    w2sp, = ax[0, 1].plot(x, np.zeros(n), color='#71768b', linestyle=':')  # W2 superimposed pattern
+    wr, = ax[1, 1].plot(x, np.zeros(n), color='#53587a')  # Resultant wave (Superposition)
 
-        w1.set_data(x, w1y)
-        w2.set_data(x, w2y)
-        sw1.set_data(x, w1y)
-        sw2.set_data(x, w2y)
-        rw.set_data(x, w1y + w2y)
+    # Set y-limits and y-ticks for W1 and W2
+    set_axis_yticks_and_limits(ax[0, 0], wave_1_params['A'])
+    set_axis_yticks_and_limits(ax[1, 0],  wave_2_params['A'])
 
-        return w1, w2, sw1, sw2, rw
+    # Set y-limits and y-ticks for superimposed pattern and resultant wave
+    set_axis_yticks_and_limits(ax[0, 1], max(wave_1_params['A'], wave_2_params['A']))
+    set_axis_yticks_and_limits(ax[1, 1], wave_1_params['A'] + wave_2_params['A'])
 
-    # Add titles and labels
+    # Set x-ticks at every half max wavelength
+    xticks = np.arange(0, 8 * max_wavelength + 1, max_wavelength // 1)
+    for subplot in ax.flatten():
+        subplot.set_xticks(xticks)
+        subplot.set_xticklabels(['{:.1f}'.format(tick) for tick in subplot.get_xticks()])
+        subplot.set_yticklabels(['{:.1f}'.format(tick) for tick in subplot.get_yticks()])
 
-    fig.suptitle('Superposition of Sine waves', size=18, x=0.23)
-    plt.figtext(0.125, 0.89, r'$y_(t) = A\sin(\omega t+ \varphi)$', fontsize=14)
+    # Add title and subtitle
+    fig.suptitle('One-Dimensional Superposition of Sine Waves', size=17, x=0.272)
+    fig.text(0.123, 0.915, (
+        'Wave Dynamics: Linear Superposition of Waveforms and Resultant Interference Patterns.'
+    ), size=11, color='#c5c5c5' if dark_theme else '#4e4e4e')
 
-    fig.supxlabel('Time (s)')
-    fig.supylabel('Displacement (mm)', x=0.06)
+    # Add [0, 0] and [1, 0] subplot titles
+    for iteration, params in enumerate([wave_1_params, wave_2_params]):
+        propagation = 'rightarrow' if params['propagation'].lower() == 'right' else 'leftarrow'
+        propagation_operator = '-' if params['propagation'].lower() == 'right' else '+'
+        phase_polarity_operator = '-' if params['phase_polarity'].lower() == 'negative' else ''
+        wave_num = iteration + 1
 
-    direction = 'longrightarrow' if (wf1 < 0) else 'longleftarrow'
-    ax[0, 0].set_title(r'$W_1$ | Frequency: {0} Hz | Amplitude: {1} mm |  $\{2}$'
-                       .format(abs(wf1), wa1, direction), size=14, pad=16, loc='left')
+        ax[iteration, 0].text(0, 1.4, (
+            r'Wave {0} ($\{3}$): $\quad W_{0}(x, t) = {1} A \sin(k x {2} \omega t + \phi)$'
+            .format(wave_num, phase_polarity_operator, propagation_operator, propagation)
+        ), size=14, transform=ax[iteration, 0].transAxes)
 
-    direction = 'longrightarrow' if (wf2 < 0) else 'longleftarrow'
-    ax[1, 0].set_title(r'$W_2$ | Frequency: {0} Hz | Amplitude: {1} mm |  $\{2}$'
-                       .format(abs(wf2), wa2, direction), size=14, pad=16, loc='left')
+        ax[iteration, 0].text(0, 1.11, (
+            r'$A_{0} = {1:.2f} \, m, \quad f_{0} = {2:.2f} \, Hz,'
+            r' \quad \lambda_{0} = {3:.2f} \, m, \quad \phi_{0} = {4:.4f}$'
+            .format(wave_num, params['A'], params['frequency'], params['wavelength'], params['phi'])
+        ), size=13, transform=ax[iteration, 0].transAxes)
 
-    ax[0, 1].set_title(r'Wave superposition | $W_1 + W_2$', size=14, pad=16, loc='left')
-    ax[1, 1].set_title(r'Resultant wave | $W_R = W_1 + W_2$', size=14, pad=16, loc='left')
+    # Add [0, 1] and [1, 1] subplot titles
+    ax[0, 1].text(0, 1.4, 'Superimposed Pattern:', size=14, transform=ax[0, 1].transAxes)
+    ax[0, 1].text(0, 1.11, r'$W_1(x, t) \ \ and \ \ W_2(x, t)$', size=14, transform=ax[0, 1].transAxes)
+    ax[1, 1].text(0, 1.4, 'Superposition:', size=14, transform=ax[1, 1].transAxes)
+    ax[1, 1].text(0, 1.11, r'$W_R(x, t) = W_1(x, t) + W_2(x, t)$', size=14, transform=ax[1, 1].transAxes)
 
-    animation = FuncAnimation(fig, animate, frames=200, interval=25, blit=True)
-    file_name = f'Sine wave superposition (w1A={wa1}mm, w1f={wf1}Hz) + (w2A={wa2}mm, w2f={wf2}Hz)'
+    # Add x-axis, y-axis labels
+    fig.supylabel('Displacement (m)', x=0.06, size=14)
+    fig.supxlabel('Position (m)', y=0.04, size=14)
 
-    # Save animation (.gif)
-    # animation.save(f'{file_name}.gif', writer='pillow', fps=30, dpi=120)
-
-    # Save last frame as an image (.png)
-    # fig.savefig(f'{file_name}.png', bbox_inches='tight', pad_inches=0.3, dpi=140)
-
-    # Display figure
+    # Create and display the animation
+    animation = FuncAnimation(fig, update, frames=200, interval=25, blit=True)
+    # animation.save('sine_wave_superposition_2.gif', writer='pillow', fps=30, dpi=120)  # Save animation (.gif)
     plt.show()
 
-# ______ Implementation | Output ______
 
-plot_wave_superposition(10, 140, 10, -140)
+# - - - Example sine wave superpositions
+if __name__ == '__main__':
 
-# plot_wave_superposition(10, 180, 10, 180, True)
-# plot_wave_superposition(10, 180, 20, -240, True)
-# plot_wave_superposition(10, 320, 10, -240, True, True)
+    # 1. Standing waves
+    plot_wave_superposition(
+        wave_1_params={'A': 5, 'wavelength': 10, 'frequency': 90, 'phi': 0.0,
+                       'propagation': 'right', 'phase_polarity': 'positive'},
+        wave_2_params={'A': 5, 'wavelength': 10, 'frequency': 90, 'phi': 0.0,
+                       'propagation': 'left', 'phase_polarity': 'positive'},
+        dark_theme=True
+    )
+
+    # 2. Wave beats
+    plot_wave_superposition(
+        wave_1_params={'A': 5, 'wavelength': 4, 'frequency': 10, 'phi': 0,
+                       'propagation': 'right', 'phase_polarity': 'positive'},
+        wave_2_params={'A': 5, 'wavelength': 5, 'frequency': 20, 'phi': 0,
+                       'propagation': 'right', 'phase_polarity': 'positive'},
+        dark_theme=True
+    )
+
+    # 3. Constructive Interference
+    plot_wave_superposition(
+        wave_1_params={'A': 10, 'wavelength': 10, 'frequency': 90, 'phi': 0.0,
+                       'propagation': 'right', 'phase_polarity': 'positive'},
+        wave_2_params={'A': 5, 'wavelength': 10, 'frequency': 90, 'phi': 0.0,
+                       'propagation': 'right', 'phase_polarity': 'positive'},
+        dark_theme=True
+    )
+
+    # 4. Destructive Interference
+    plot_wave_superposition(
+        wave_1_params={'A': 10, 'wavelength': 10, 'frequency': 90, 'phi': 0,
+                       'propagation': 'right', 'phase_polarity': 'positive'},
+        wave_2_params={'A': 5, 'wavelength': 10, 'frequency': 90, 'phi': np.pi,
+                       'propagation': 'right', 'phase_polarity': 'positive'},
+        dark_theme=True
+    )
+
+    # 5. Perfect Destructive Interference (Cancellation)
+    plot_wave_superposition(
+        wave_1_params={'A': 10, 'wavelength': 10, 'frequency': 90, 'phi': 0.0,
+                       'propagation': 'right', 'phase_polarity': 'positive'},
+        wave_2_params={'A': 10, 'wavelength': 10, 'frequency': 90, 'phi': np.pi,
+                       'propagation': 'right', 'phase_polarity': 'positive'},
+        dark_theme=True
+    )
+
+    # 6. Fundamental Frequency + 2nd Harmonic
+    plot_wave_superposition(
+        wave_1_params={'A': 5, 'wavelength': 4, 'frequency': 90, 'phi': 0.0,
+                       'propagation': 'right', 'phase_polarity': 'positive'},
+        wave_2_params={'A': 2.5, 'wavelength': 2, 'frequency': 180, 'phi': 0.0,
+                       'propagation': 'right', 'phase_polarity': 'positive'},
+        dark_theme=True
+    )
+
+    # 7. General superposition
+    plot_wave_superposition(
+        wave_1_params={'A': 10, 'wavelength': 6, 'frequency': 90, 'phi': 0.0,
+                       'propagation': 'right', 'phase_polarity': 'positive'},
+        wave_2_params={'A': 5, 'wavelength': 10, 'frequency': 110, 'phi': 0.0,
+                       'propagation': 'left', 'phase_polarity': 'negative'},
+        dark_theme=True
+    )
