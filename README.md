@@ -17,12 +17,12 @@ principle in one dimension.
 
 ## Content
 #### Theoretical Background
-* [Wave Equation](#wave-equation)
-* [Superposition Principle](#superposition-principle)
+* [Wave equation](#wave-equation)
+* [Superposition principle](#superposition-principle)
 
 #### Parameters
-* [Wave Model Parameters](#wave-model-parameters)
-* [Superposition Plot Parameters](#superposition-plot-parameters)
+* [Wave model parameters](#wave-model-parameters)
+* [Superposition plot parameters](#superposition-plot-parameters)
 
 #### Implementation
 * [Modeling of sine wave superposition phenomena and interference patterns](#modeling-of-sine-wave-superposition-phenomena-and-interference-patterns)
@@ -54,8 +54,6 @@ When two waves $W_1$ and $W_2$ interfere, the resultant wave $W_R$ can be given 
 
 $$W_R(x, t) = W_1(x, t) + W_2(x, t)$$
 
-#### Interference patterns
-
 Interference patterns are the result of the superposition of two or more waves.
 These patterns can be either constructive or destructive depending on the phase 
 and amplitude of the interacting waves. These patterns can display areas of both constructive and 
@@ -67,20 +65,22 @@ sound wave interference.
 ### Wave Model Parameters
 >model_sinewave()
 
-| Parameter      | Description                                                                   | Type              |
-|:---------------|:------------------------------------------------------------------------------|:------------------|
-| x              | Positions of the wave: Positions where the wave is evaluated (m)              | numpy.ndarray     |
-| t              | Time of evaluation: Time at which the wave is evaluated (s)                   | float             |
-| A              | Amplitude: Maximum displacement from equilibrium (m)                          | float             |
-| wavelength     | Wavelength: Length of one complete wave cycle (m)                             | float             |
-| frequency      | Frequency: Number of oscillations per second (Hz)                             | float             |
-| phi            | Phase offset: Shifts the wave horizontally (radians)                          | float (optional)  |
-| propagation    | Propagation direction: 'Right' for positive x-direction, 'Left' for negative  | string (optional) |
-| phase_polarity | Phase polarity: 'Positive' retains form, 'Negative' flips the wave vertically | string (optional) |
+| Parameter      | Description                                                                       | Type              |
+|:---------------|:----------------------------------------------------------------------------------|:------------------|
+| x              | Positions of the wave: Positions where the wave is evaluated (m)                  | numpy.ndarray     |
+| t              | Time of evaluation: Time at which the wave is evaluated (s)                       | float             |
+| A              | Amplitude: Maximum displacement from equilibrium (m)                              | float             |
+| wavelength     | Wavelength: Length of one complete wave cycle (m)                                 | float             |
+| frequency      | Frequency: Number of oscillations per second (Hz)                                 | float             |
+| phi            | Phase offset: Shifts the wave horizontally (radians)                              | float (optional)  |
+| propagation    | Propagation direction: 'Right' for positive x-direction, 'Left' for negative      | string (optional) |
+| phase_polarity | Phase polarity (y): 'Positive' retains form, 'Negative' flips the wave vertically | string (optional) |
 
 These parameters can be used to represent the waves in the model:
 
 $$y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x - 2\pi \cdot \text{frequency} \cdot t + \phi \right)$$
+
+---
 
 ### Superposition Plot Parameters
 >plot_wave_superposition()
@@ -92,24 +92,23 @@ $$y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x - 2\pi \cdot \te
 | dark_theme    | Dark Theme: If True, uses a dark background for the plot | bool (optional) |
 
 ---
-
+## Implementation
 ### Modeling of sine wave superposition phenomena and interference patterns
 
-#### ex. 1 - Standing waves
-#### Parameters:
+#### 1. Standing waves
 
-|                |       Parameter        | $W_1$  | $W_2$ |
-|:--------------:|:----------------------:|:------:|:-----:|
-|      $A$       |       Amplitude        |   1    |   1   |
-|   $\lambda$    |       Wavelength       |   1    |   1   |
-|      $f$       |       Frequency        |   1    |   1   |
-|     $\phi$     |      Phase offset      |   1    |   1   |
-|  propagation   | Propagation direction  |   1    |   1   |
-| phase polarity |     Phase polarity     |   1    |   1   |
+|   Parameter    |      Description      | $W_1$  | $W_2$ |
+|:--------------:|:---------------------:|:------:|:-----:|
+|       A        |    $A$: Amplitude     |   1    |   1   |
+|   wavelength   | $\lambda$: Wavelength |   1    |   1   |
+|   frequency    |    $f$: Frequency     |   1    |   1   |
+|      phi       | $\phi$: Phase offset  |   1    |   1   |
+|  propagation   | Propagation direction |   1    |   1   |
+| phase_polarity |  Phase polarity (y)   |   1    |   1   |
 
-|             | Parameter  | Value |
-|:-----------:|:----------:|:-----:|
-| dark_theme  | Dark Theme | True  |
+| Parameter  | Description | Value |
+|:----------:|:-----------:|:-----:|
+| dark_theme | Dark Theme  | True  |
 
 #### Output:
 
@@ -117,21 +116,20 @@ $$y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x - 2\pi \cdot \te
   <img src='img/(3,2,1)[lt].png' width=60% />
 </p>
 
-#### ex. 2 - Wave beats
-#### Parameters:
+#### 2. Wave beats
 
-|                |       Parameter        | $W_1$  | $W_2$ |
-|:--------------:|:----------------------:|:------:|:-----:|
-|      $A$       |       Amplitude        |   1    |   1   |
-|   $\lambda$    |       Wavelength       |   1    |   1   |
-|      $f$       |       Frequency        |   1    |   1   |
-|     $\phi$     |      Phase offset      |   1    |   1   |
-|  propagation   | Propagation direction  |   1    |   1   |
-| phase polarity |     Phase polarity     |   1    |   1   |
+| Parameter      | Description           | $W_1$ | $W_2$ |
+|:---------------|:----------------------|:------|:------|
+| A              | $A$: Amplitude        | 1     | 1     |
+| wavelength     | $\lambda$: Wavelength | 1     | 1     |
+| frequency      | $f$: Frequency        | 1     | 1     |
+| phi            | $\phi$: Phase offset  | 1     | 1     |
+| propagation    | Propagation direction | 1     | 1     |
+| phase_polarity | Phase polarity (y)    | 1     | 1     |
 
-|             | Parameter  | Value |
-|:-----------:|:----------:|:-----:|
-| dark_theme  | Dark Theme | True  |
+| Parameter  | Description | Value |
+|:-----------|:------------|:------|
+| dark_theme | Dark Theme  | True  |
 
 #### Output:
 
