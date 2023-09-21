@@ -78,7 +78,7 @@ sound wave interference.
 
 These parameters can be used to represent the waves in the model:
 
-####$y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x \pm 2\pi \cdot \text{frequency} \cdot t + \phi \right)$
+$y(x, t) = A \sin\left( \frac{2\pi}{\text{wavelength}} \cdot x \pm 2\pi \cdot \text{frequency} \cdot t + \phi \right)$
 
 ---
 
